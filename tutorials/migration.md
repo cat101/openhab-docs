@@ -469,6 +469,7 @@ cp <openHAB 1.x conf>/configurations/sitemaps/* <openHAB 2 conf>/sitemaps/*
   * All references to org.openhab.core.* in imports and class references should be removed. All of these classes are automatically included and have moved.
   * import org.joda.time.* statements should also be removed.
   * To test for Items with an Undefined state replace `if(MyItem.state == Undefined)` with `if(MyItem.state == NULL)`. Case matters. `NULL` is only valid when testing an Item's state to see if it is undefined. `null` is used pretty much everywhere else to mean "no value" and usually indicates no result or an error.
+  * You should review all scripts using `return` and [ensure they are used at the end of a block](https://github.com/eclipse/smarthome/issues/3831) or get rid of them until a permanent solution is found. 
   * The `HSBType` state type can no longer be constructed using a `java.awt.Color` object, and there is no longer a `toColor()` method.  Use the following alternatives:
 
 ```java
